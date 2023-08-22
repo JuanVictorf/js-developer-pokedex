@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalhes do Pokémon</title>
+
+
+    <link rel="stylesheet" href="/assets/css/details.css">
+</head>
+<body>
+    <h1 class="titulo">Detalhes do Pokémon</h1>
+    
+    <div id="pokemon-details" class="details">
+        <!-- As informações detalhadas do Pokémon serão exibidas aqui -->
+
+        
+    </div>
+
+    <script>
+        // Obtém o ID do Pokémon da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const pokemonId = urlParams.get('id');
+
+        // Use o ID para fazer uma requisição para obter as informações detalhadas do Pokémon
+        const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonId}/`;
+        
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(pokemonData => {
+                // Atualize o conteúdo na página com as informações detalhadas do Pokémon
+                const pokemonDetailsContainer = document.getElementById('pokemon-details');
+                pokemonDetailsContainer.innerHTML = `
+                    <img src="${pokemonData.sprites.other.dream_world.front_default}"
+                     alt="${pokemonData.name}">
+                    <h2>${pokemonData.name}</h2>
+                    <p>ID: ${pokemonData.id}</p>
+                    <p>Name: ${pokemonData.name}</p>
+                    Tipo: ${pokemonData.types.map((type) => `${type.type.name}`).join(', ')} 
+                    
+
+                    <!-- ... outras informações do Pokémon ... -->
+                `;
+                
+            })
+            .catch(error => {
+                console.error('Erro ao obter informações do Pokémon:', error);
+            });
+    </script>
+
+    <div class="back">
+        <a href="/">Voltar para a listagem de Pokemons</a>
+    </div>
+
+</body>
+</html>
