@@ -5,7 +5,6 @@ Este é um projeto simples que demonstra como exibir os detalhes de um Pokémon 
 ## Funcionalidades
 
 - Exibe o nome, ID, imagem e tipos do Pokémon com base em seu ID.
-- Layout minimalista e elegante usando CSS.
 
 ## Tecnologias Utilizadas
 
@@ -18,9 +17,5 @@ Este é um projeto simples que demonstra como exibir os detalhes de um Pokémon 
 1. Clone ou faça o download deste repositório.
 2. Abra o arquivo `index.html` em um navegador da web.
 
-## Pré-requisitos
 
-- Navegador da web moderno.
-
-## Estrutura do Projeto
 
